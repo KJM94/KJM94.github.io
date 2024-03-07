@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>성능 측정 | This is my Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="python" />
+    
+    <meta name="description" content="성능 측정 정확도 혼동 행렬 정밀도 재현율 F1 Score ROC curve AUC  정확도(Accuracy) 전체 값 중에 올바르게 예측한 값이 몇 개인지 판단 직관적으로 모델 예측 성능을 나타내는 평가 지표  예측결과가 동일한 데이터 건수 &#x2F; 전체 예측 데이터 건수 혼동 행렬(Confusion matrix) 모델의 성능을 평가할 때 사용되는 지표 예측">
+<meta property="og:type" content="article">
+<meta property="og:title" content="성능 측정">
+<meta property="og:url" content="https://kjm94.github.io/2021/04/17/%EC%84%B1%EB%8A%A5-%EC%B8%A1%EC%A0%95/index.html">
+<meta property="og:site_name" content="This is my Blog">
+<meta property="og:description" content="성능 측정 정확도 혼동 행렬 정밀도 재현율 F1 Score ROC curve AUC  정확도(Accuracy) 전체 값 중에 올바르게 예측한 값이 몇 개인지 판단 직관적으로 모델 예측 성능을 나타내는 평가 지표  예측결과가 동일한 데이터 건수 &#x2F; 전체 예측 데이터 건수 혼동 행렬(Confusion matrix) 모델의 성능을 평가할 때 사용되는 지표 예측">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-17T06:40:38.000Z">
+<meta property="article:modified_time" content="2024-03-07T03:34:30.031Z">
+<meta property="article:author" content="Kwon Jung Min">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/icon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">안녕하십니까</p>
+                        </h2>
+
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://kjm94.github.io/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C/">C</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C/">C++</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/">Project</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Dacon/">Dacon</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Kaggle/">Kaggle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/R/">R</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" target="_blank" rel="noopener" href="https://public.tableau.com/profile/.75992107#!/">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Python/">Python</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-성능-측정" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        성능 측정
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/04/17/%EC%84%B1%EB%8A%A5-%EC%B8%A1%EC%A0%95/" class="article-date">
+       <time datetime="2021-04-17T06:40:38.000Z" itemprop="datePublished">2021-04-17</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/04/17/%EC%84%B1%EB%8A%A5-%EC%B8%A1%EC%A0%95/" class="article-date">
+     <time datetime="2024-03-07T03:34:30.031Z" itemprop="dateModified">2024-03-07</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="성능-측정"><a href="#성능-측정" class="headerlink" title="성능 측정"></a>성능 측정</h1><ul>
+<li>정확도</li>
+<li>혼동 행렬</li>
+<li>정밀도</li>
+<li>재현율</li>
+<li>F1 Score</li>
+<li>ROC curve</li>
+<li>AUC</li>
+</ul>
+<h2 id="정확도-Accuracy"><a href="#정확도-Accuracy" class="headerlink" title="정확도(Accuracy)"></a>정확도(Accuracy)</h2><ul>
+<li>전체 값 중에 올바르게 예측한 값이 몇 개인지 판단</li>
+<li>직관적으로 모델 예측 성능을 나타내는 평가 지표</li>
+</ul>
+<p>예측결과가 동일한 데이터 건수 / 전체 예측 데이터 건수</p>
+<h2 id="혼동-행렬-Confusion-matrix"><a href="#혼동-행렬-Confusion-matrix" class="headerlink" title="혼동 행렬(Confusion matrix)"></a>혼동 행렬(Confusion matrix)</h2><ul>
+<li>모델의 성능을 평가할 때 사용되는 지표</li>
+<li>예측 값이 실제 관측 값을 얼마나 정확하게 예측 했는지 보여주는 행렬</li>
+</ul>
+<h2 id="정밀도-Precision"><a href="#정밀도-Precision" class="headerlink" title="정밀도(Precision)"></a>정밀도(Precision)</h2><ul>
+<li>모델의 예측 값이 얼마나 정확하게 예측됐는가를 나타내는 지표</li>
+<li>관측의 균질성</li>
+<li>관측된 값의 편차가 적을수록 정밀</li>
+</ul>
+<p>TP/TP+FP</p>
+<h2 id="재현율-recall"><a href="#재현율-recall" class="headerlink" title="재현율(recall)"></a>재현율(recall)</h2><ul>
+<li>실제 값 중에서 모델이 검출한 실제 값의 비율을 나타내는 지표</li>
+</ul>
+<p>TP/TP+FN</p>
+<h2 id="F1-Score"><a href="#F1-Score" class="headerlink" title="F1 Score"></a>F1 Score</h2><ul>
+<li>정밀도와 재현율 두 값을 조화 평균을 내서 하나의 수치로 나타낸 지표</li>
+</ul>
+<p>2 * 재현율 * 정밀도/(재현율+정밀도)</p>
+<h2 id="정밀도-재현율-트레이드오프"><a href="#정밀도-재현율-트레이드오프" class="headerlink" title="정밀도/ 재현율 트레이드오프"></a>정밀도/ 재현율 트레이드오프</h2><ul>
+<li>정밀도와 재현율의 중요성은 사례마다 다름</li>
+<li>임곗값(Threshold)를 조정하여 정밀도나 재현율의 수치 조정</li>
+<li>임곗값이 높을수록 재현율을 낮아지고 정밀도는 높아짐</li>
+<li>정밀도와 재현율은 서로 반비례 관계</li>
+</ul>
+<h2 id="ROC-curve"><a href="#ROC-curve" class="headerlink" title="ROC curve"></a>ROC curve</h2><ul>
+<li><p>임곗값(threshold)이 달라짐에 따라 분류모델의 성능이 어떻게 변하는지를 나타내는 곡선</p>
+</li>
+<li><p>임곗값의 변화에 따라 성능 평가 지표의 값이 어떻게 변하는지를 시각화한 곡선</p>
+</li>
+<li><p>분류 모델의 y값은 기본적으로 확률 값으로 출력 이를 분류 결과로 변환해 주기 위해서는 0과 1사이의 일정한 값을 기준으로 이보다 크면 참, 작으면 거짓으로 취급함</p>
+</li>
+</ul>
+<p>임곗값을 달리 취해주는 경우</p>
+<ul>
+<li><p>일반적으로는 0.5를 기준으로 사용하지만, 참인 것을 반드시 잡아주어야 하는 경우 기준값 변경</p>
+</li>
+<li><p>환자가 코로나 바이러스와 같은 전염병에 걸렸는지 여부, 조금이라도 낌새가 있으면 모두 양성으로 처리해야 할 때를 예로 들 수 있음</p>
+</li>
+<li><p>False Negative를 최대한 피해 주어야 할 경우 임곗값을 0.1로 잡아준다던지, 그 반대의 경우로 최대한 참으로 판명하는 것을 보수적으로 결정해야 할 경우에는 0.9로 잡아 주는 등의 결정을 내려야함</p>
+</li>
+<li><p>기준 값을 낮추면 그에 따라 Positive 예측 확률이 증가하고 그에 따라서 재현율이 증가하게 되어 대상 물체를 빠뜨리지 않고 잘 잡아내게 됨</p>
+</li>
+<li><p>반대로 기준값을 높이면 정밀도가 증가하여 검출된 결과가 얼마나 정확한지 다시 말하여 검출 결과들 중 실제 물체가 얼마나 포함되어 있는지를 나타냄</p>
+</li>
+<li><p>분석가가 수용 가능한 False Positive Rate 정도를 결정해 주어야 함</p>
+</li>
+</ul>
+<h2 id="AUC"><a href="#AUC" class="headerlink" title="AUC"></a>AUC</h2><p>Area Under the Curve</p>
+<ul>
+<li>ROC 커브 하단 영역의 넓이를 구한 값 0~1 사이의 값을 갖는다 더 높을수록 더 좋은 분류 성능</li>
+<li>판단이 불분명한 부분이 적을수록 이상적인 분류 성능을 보임</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://kjm94.github.io/2021/04/17/%EC%84%B1%EB%8A%A5-%EC%B8%A1%EC%A0%95/" data-id="cltgp3of2006mdwvhcofe19q6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Kwon Jung Min"
+        },
+        "headline": "성능 측정",
+        "image": "https://KJM94.github.io",
+        "keywords": "python",
+        "genre": "Python",
+        "datePublished": "2021-04-17",
+        "dateCreated": "2021-04-17",
+        "dateModified": "2024-03-07",
+        "url": "https://KJM94.github.io/2021/04/17/성능-측정/",
+        "description": "성능 측정
+정확도
+혼동 행렬
+정밀도
+재현율
+F1 Score
+ROC curve
+AUC
+
+정확도(Accuracy)
+전체 값 중에 올바르게 예측한 값이 몇 개인지 판단
+직관적으로 모델 예측 성능을 나타내는 평가 지표
+
+예측결과가 동일한 데이터 건수 / 전체 예측 데이터 건수
+혼동 행렬(Confusion matrix)
+모델의 성능을 평가할 때 사용되는 지표
+예측 ",
+        "wordCount": 317
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/KJM94" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    <div class="github-card" data-github="kjm94" data-width="340" data-height="317" data-theme="medium"></div>
+    <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/04/22/%ED%9A%8C%EA%B7%80-%ED%8F%89%EA%B0%80/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            회귀 평가
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/04/16/%EA%B8%B0%EC%B4%88%ED%86%B5%EA%B3%84-%EC%9E%90%EB%A3%8C/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">기초통계 자료</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/02/28/GCP/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/google-cloud-platform.jpg)" alt="GCP" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2024/02/28/GCP/" class="title">GCP</a></p>
+                            <p class="item-date"><time datetime="2024-02-28T02:16:22.000Z" itemprop="datePublished">2024-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/02/27/Pytorch/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/ta.PNG)" alt="Pytorch" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2024/02/27/Pytorch/" class="title">Pytorch</a></p>
+                            <p class="item-date"><time datetime="2024-02-27T01:38:48.000Z" itemprop="datePublished">2024-02-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/02/26/Keras/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/ke.PNG)" alt="Keras" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2024/02/26/Keras/" class="title">Keras</a></p>
+                            <p class="item-date"><time datetime="2024-02-26T00:31:03.000Z" itemprop="datePublished">2024-02-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/02/23/ANOVA/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/an.PNG)" alt="ANOVA" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2024/02/23/ANOVA/" class="title">ANOVA</a></p>
+                            <p class="item-date"><time datetime="2024-02-23T05:51:39.000Z" itemprop="datePublished">2024-02-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/02/22/Random-Forest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/ac.PNG)" alt="Random Forest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2024/02/22/Random-Forest/" class="title">Random Forest</a></p>
+                            <p class="item-date"><time datetime="2024-02-22T01:43:47.000Z" itemprop="datePublished">2024-02-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Project/">Project</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Project/Dacon/">Dacon</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Project/Kaggle/">Kaggle</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/R/">R</a><span class="category-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DL/" rel="tag">DL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PYTHON/" rel="tag">PYTHON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/" rel="tag">Project</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/" rel="tag">R</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/" rel="tag">Tool</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 16px;">C++</a> <a href="/tags/DL/" style="font-size: 10px;">DL</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/JAVA/" style="font-size: 12px;">JAVA</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/PYTHON/" style="font-size: 10px;">PYTHON</a> <a href="/tags/Project/" style="font-size: 14px;">Project</a> <a href="/tags/R/" style="font-size: 18px;">R</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/c/" style="font-size: 14px;">c++</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/python/" style="font-size: 20px;">python</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Kwon Jung Min</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://kjm94.github.io/2021/04/17/%EC%84%B1%EB%8A%A5-%EC%B8%A1%EC%A0%95/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
