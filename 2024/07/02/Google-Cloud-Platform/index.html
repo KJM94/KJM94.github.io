@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kjm94.github.io/image/xhmb4das.png">
 <meta property="article:published_time" content="2024-07-02T04:53:56.000Z">
-<meta property="article:modified_time" content="2024-07-09T05:43:25.547Z">
+<meta property="article:modified_time" content="2024-07-10T06:21:48.885Z">
 <meta property="article:author" content="Kwon Jung Min">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/07/02/Google-Cloud-Platform/" class="article-date">
-     <time datetime="2024-07-09T05:43:25.547Z" itemprop="dateModified">2024-07-09</time>
+     <time datetime="2024-07-10T06:21:48.885Z" itemprop="dateModified">2024-07-10</time>
   </a>
 </div>
 
@@ -332,6 +332,34 @@
 <li>GameEngine 설치 완료 후 SDK64를 설치하기 위해 다음 명령어를 차례대로 입력합니다.</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;.steam&#x2F;sdk64&#x2F;</span><br><span class="line">steamcmd +login anonymous +app_update 1007 +quit</span><br><span class="line">cp ~&#x2F;Steam&#x2F;steamapps&#x2F;common&#x2F;Steamworks\ SDK\ Redist&#x2F;linux64&#x2F;steamclient.so ~&#x2F;.steam&#x2F;sdk64&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>⑥ 서버 실행 및 서버 환경 설정 파일 수정 및 커스터마이징</p>
+<ol>
+<li>설치를 모두 완료한 다음 아래 2개 명령어를 입력해서 파일 생성을 위해 이니셜을 최초 1회만 실행합니다.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;Steam&#x2F;steamapps&#x2F;common&#x2F;PalServer</span><br><span class="line">.&#x2F;PalServer.sh</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>서버를 실행한 다음 키보드 “Ctrl + C” 키를 동시 입력해서 서버를 내려줍니다.</p>
+</li>
+<li><p>서버 설정 파일을 세부적으로 커스터마이징 및 수정할 수 있도록 아래 명령어를 실행합니다.</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nano </span><br><span class="line">~&#x2F;Steam&#x2F;steamapps&#x2F;common&#x2F;PalServer&#x2F;Pal&#x2F;Saved&#x2F;Config&#x2F;LinuxServer&#x2F;PalWorldSettings.ini</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>아래 스크립트 내용을 복사한 다음 내용을 수정하고, 다시 수정한 내용을 복사합니다.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&#x2F;Script&#x2F;Pal.PalGameWorldSettings]</span><br><span class="line">OptionSettings&#x3D;(Difficulty&#x3D;None,DayTimeSpeedRate&#x3D;1.000000,NightTimeSpeedRate&#x3D;1.000000,ExpRate&#x3D;1.000000,PalCaptureRate&#x3D;1.000000,PalSpawnNumRate&#x3D;1.000000,PalDamageRateAttack&#x3D;1.000000,PalDamageRateDefense&#x3D;1.000000,PlayerDamageRateAttack&#x3D;1.000000,PlayerDamageRateDefense&#x3D;1.000000,PlayerStomachDecreaceRate&#x3D;1.000000,PlayerStaminaDecreaceRate&#x3D;1.000000,PlayerAutoHPRegeneRate&#x3D;1.000000,PlayerAutoHpRegeneRateInSleep&#x3D;1.000000,PalStomachDecreaceRate&#x3D;1.000000,PalStaminaDecreaceRate&#x3D;1.000000,PalAutoHPRegeneRate&#x3D;1.000000,PalAutoHpRegeneRateInSleep&#x3D;1.000000,BuildObjectDamageRate&#x3D;1.000000,BuildObjectDeteriorationDamageRate&#x3D;1.000000,CollectionDropRate&#x3D;1.000000,CollectionObjectHpRate&#x3D;1.000000,CollectionObjectRespawnSpeedRate&#x3D;1.000000,EnemyDropItemRate&#x3D;1.000000,DeathPenalty&#x3D;All,bEnablePlayerToPlayerDamage&#x3D;False,bEnableFriendlyFire&#x3D;False,bEnableInvaderEnemy&#x3D;True,bActiveUNKO&#x3D;False,bEnableAimAssistPad&#x3D;True,bEnableAimAssistKeyboard&#x3D;False,DropItemMaxNum&#x3D;3000,DropItemMaxNum_UNKO&#x3D;100,BaseCampMaxNum&#x3D;128,BaseCampWorkerMaxNum&#x3D;15,DropItemAliveMaxHours&#x3D;1.000000,bAutoResetGuildNoOnlinePlayers&#x3D;False,AutoResetGuildTimeNoOnlinePlayers&#x3D;72.000000,GuildPlayerMaxNum&#x3D;20,PalEggDefaultHatchingTime&#x3D;72.000000,WorkSpeedRate&#x3D;1.000000,bIsMultiplay&#x3D;False,bIsPvP&#x3D;False,bCanPickupOtherGuildDeathPenaltyDrop&#x3D;False,bEnableNonLoginPenalty&#x3D;True,bEnableFastTravel&#x3D;True,bIsStartLocationSelectByMap&#x3D;True,bExistPlayerAfterLogout&#x3D;False,bEnableDefenseOtherGuildPlayer&#x3D;False,CoopPlayerMaxNum&#x3D;4,ServerPlayerMaxNum&#x3D;32,ServerName&#x3D;&quot;Default Palworld Server&quot;,ServerDescription&#x3D;&quot;&quot;,AdminPassword&#x3D;&quot;12341234&quot;,ServerPassword&#x3D;&quot;&quot;,PublicPort&#x3D;8211,PublicIP&#x3D;&quot;&quot;,RCONEnabled&#x3D;False,RCONPort&#x3D;25575,Region&#x3D;&quot;&quot;,bUseAuth&#x3D;True,BanListURL&#x3D;&quot;https:&#x2F;&#x2F;api.palworldgame.com&#x2F;api&#x2F;banlist.txt&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>파일 내용을 수정할 때는 팰월드 테크 가이드 페이지의 내용을 참고해서 커스터마이징하시기 바랍니다.</p>
+<p><a target="_blank" rel="noopener" href="https://tech.palworldgame.com/settings-and-operation/configuration/">https://tech.palworldgame.com/settings-and-operation/configuration/</a></p>
+<ol start="5">
+<li>복사한 내용을 편집기로 돌아간 다음 검은 화면 위에 마우스 오른쪽 버튼을 클릭하고, “붙여 넣기”를 클릭합니다.</li>
+<li>모든 작업을 완료한 다음 키보드 “Ctrl + X” 키를 입력해서 종료합니다.</li>
+<li>‘Save modifield buffer?’ 창에서 키보드 “Y”키를 입력하고, 엔터키를 눌러줍니다.</li>
+</ol>
+
         </div>
         <footer class="article-footer">
             
@@ -414,7 +442,7 @@
         "genre": "Linux",
         "datePublished": "2024-07-02",
         "dateCreated": "2024-07-02",
-        "dateModified": "2024-07-09",
+        "dateModified": "2024-07-10",
         "url": "https://KJM94.github.io/2024/07/02/Google-Cloud-Platform/",
         "description": "구글 클라우드 플랫폼
 팰월드 서버 만들기① 구글 클라우드(Google Cloud) 회원 가입 및 무료 이용 방법
@@ -423,7 +451,7 @@
 “무료로 시작하기” 버튼을 클릭하고, 회원가입을 진행합니다.
 
 회원가입 시 입력해야 하는 고객 정보 및 결제 수단 정보는 자동결제에 이용되지 않으며, 안내해 드린 구글 클라우",
-        "wordCount": 672
+        "wordCount": 803
     }
 </script>
 
