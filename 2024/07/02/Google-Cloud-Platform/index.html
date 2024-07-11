@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kjm94.github.io/image/xhmb4das.png">
 <meta property="article:published_time" content="2024-07-02T04:53:56.000Z">
-<meta property="article:modified_time" content="2024-07-10T06:21:48.885Z">
+<meta property="article:modified_time" content="2024-07-11T06:13:32.397Z">
 <meta property="article:author" content="Kwon Jung Min">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/07/02/Google-Cloud-Platform/" class="article-date">
-     <time datetime="2024-07-10T06:21:48.885Z" itemprop="dateModified">2024-07-10</time>
+     <time datetime="2024-07-11T06:13:32.397Z" itemprop="dateModified">2024-07-11</time>
   </a>
 </div>
 
@@ -359,6 +359,27 @@
 <li>모든 작업을 완료한 다음 키보드 “Ctrl + X” 키를 입력해서 종료합니다.</li>
 <li>‘Save modifield buffer?’ 창에서 키보드 “Y”키를 입력하고, 엔터키를 눌러줍니다.</li>
 </ol>
+<p>⑦ 서버 구동 방법</p>
+<ol>
+<li>‘브라우저에서 SSH를 통해 연결’ 창에서 게임을 구동하기 전에 스크린 유틸리티를 구동하기 위해 아래 명령어를 입력합니다.(터미널 창을 닫더라도 서버는 계속 운영되도록 Screen Utility를 실행합니다.)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>서버 구동 및 게임을 실행할 수 있는 명령어를 입력 및 실행합니다.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;Steam&#x2F;steamapps&#x2F;common&#x2F;PalServer</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>개발사에서 안내하는 성능 최적화를 위한 멀티스레딩 옵션을 추가할 수 있는 명령어를 입력 및 실행합니다.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;PalServer.sh -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>실행되어 있는 터미널을 백그라운드로 돌리고, 종료하기 위해 키보드 “Ctrl(컨트롤)” 키를 누른 상태로, 키보드 A(ㅁ) 키와 D(ㅇ) 키를 차례대로 눌러줍니다.</li>
+</ol>
+<p>모든 설정을 완료하고, 터미널 창(브라우저에서 SSH를 통해 연결)을 닫더라도 서버는 24시간 계속 운영됩니다.</p>
+<p>이상으로 구글 클라우드 서비스를 이용해서 팰월드 서버 만들기를 완료했습니다. 구글 클라우드 VM 인스턴스 설정 페이지에서 “외부 IP” 탭에 적혀있는 IP 주소를 내가 만든 팰월드 서버에서 함께 멀티플레이할 친구, 지인, 동료들에게 공유해서 접속하도록 합니다.</p>
 
         </div>
         <footer class="article-footer">
@@ -442,7 +463,7 @@
         "genre": "Linux",
         "datePublished": "2024-07-02",
         "dateCreated": "2024-07-02",
-        "dateModified": "2024-07-10",
+        "dateModified": "2024-07-11",
         "url": "https://KJM94.github.io/2024/07/02/Google-Cloud-Platform/",
         "description": "구글 클라우드 플랫폼
 팰월드 서버 만들기① 구글 클라우드(Google Cloud) 회원 가입 및 무료 이용 방법
@@ -451,7 +472,7 @@
 “무료로 시작하기” 버튼을 클릭하고, 회원가입을 진행합니다.
 
 회원가입 시 입력해야 하는 고객 정보 및 결제 수단 정보는 자동결제에 이용되지 않으며, 안내해 드린 구글 클라우",
-        "wordCount": 803
+        "wordCount": 938
     }
 </script>
 
