@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Genshin_Impact_Analytics | This is my Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Game" />
+    
+    <meta name="description" content="원신 BM 분석 자기 만족으로 끝나는 BM 구조로 장기 흥행하기기본적으로는 수집형 RPG 이기 때문에 장르에 해당하는 공통점이 여럿 있지만 원신에서 볼 수 있는 몇 가지 차이점이 있다. 상점 페이지 공월 축복은 여타 게임에서 보여지는 월 정액 패키지에 해당되는 상품이다. 상점의 메인페이지에는 공월 축복 단 하나만 노출되고 있으며,  패키지의 종류도 많지 않">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Genshin_Impact_Analytics">
+<meta property="og:url" content="https://kjm94.github.io/2024/09/27/Genshin-Impact-Analytics/index.html">
+<meta property="og:site_name" content="This is my Blog">
+<meta property="og:description" content="원신 BM 분석 자기 만족으로 끝나는 BM 구조로 장기 흥행하기기본적으로는 수집형 RPG 이기 때문에 장르에 해당하는 공통점이 여럿 있지만 원신에서 볼 수 있는 몇 가지 차이점이 있다. 상점 페이지 공월 축복은 여타 게임에서 보여지는 월 정액 패키지에 해당되는 상품이다. 상점의 메인페이지에는 공월 축복 단 하나만 노출되고 있으며,  패키지의 종류도 많지 않">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kjm94.github.io/image/%EC%9B%90%EC%8B%A0.png">
+<meta property="article:published_time" content="2024-09-27T05:32:40.000Z">
+<meta property="article:modified_time" content="2024-09-27T07:32:03.252Z">
+<meta property="article:author" content="Kwon Jung Min">
+<meta property="article:tag" content="Game">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kjm94.github.io/image/%EC%9B%90%EC%8B%A0.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/icon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">안녕하십니까</p>
+                        </h2>
+
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://kjm94.github.io/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C/">C</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C/">C++</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Game/">Game</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/">Project</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Dacon/">Dacon</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Kaggle/">Kaggle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/R/">R</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Sql/">Sql</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" target="_blank" rel="noopener" href="https://public.tableau.com/profile/.75992107#!/">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Game/">Game</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Genshin-Impact-Analytics" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Genshin_Impact_Analytics
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2024/09/27/Genshin-Impact-Analytics/" class="article-date">
+       <time datetime="2024-09-27T05:32:40.000Z" itemprop="datePublished">2024-09-27</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2024/09/27/Genshin-Impact-Analytics/" class="article-date">
+     <time datetime="2024-09-27T07:32:03.252Z" itemprop="dateModified">2024-09-27</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Game/" rel="tag">Game</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="원신-BM-분석"><a href="#원신-BM-분석" class="headerlink" title="원신 BM 분석"></a>원신 BM 분석</h1><p><img src="/image/%EC%9B%90%EC%8B%A0.png"></p>
+<h2 id="자기-만족으로-끝나는-BM-구조로-장기-흥행하기"><a href="#자기-만족으로-끝나는-BM-구조로-장기-흥행하기" class="headerlink" title="자기 만족으로 끝나는 BM 구조로 장기 흥행하기"></a>자기 만족으로 끝나는 BM 구조로 장기 흥행하기</h2><p>기본적으로는 수집형 RPG 이기 때문에 장르에 해당하는 공통점이 여럿 있지만</p>
+<p>원신에서 볼 수 있는 몇 가지 차이점이 있다.</p>
+<h3 id="상점-페이지"><a href="#상점-페이지" class="headerlink" title="상점 페이지"></a>상점 페이지</h3><p><img src="/image/%EA%B3%B5%EC%9B%94%EC%B6%95%EB%B3%B5.png"></p>
+<p>공월 축복은 여타 게임에서 보여지는 월 정액 패키지에 해당되는 상품이다.</p>
+<p>상점의 메인페이지에는 공월 축복 단 하나만 노출되고 있으며,</p>
+<p><img src="/image/%ED%8C%A8%ED%82%A4%EC%A7%80%EC%83%81%EC%A0%90.png"></p>
+<p>패키지의 종류도 많지 않고, 패키지 구매 팝업창 같은 것은 전혀 노출시키지 않아</p>
+<p>톡식한 BM 유도로 보여지지 않게 만들어져 있다.</p>
+<h3 id="캐릭터-무기-가챠"><a href="#캐릭터-무기-가챠" class="headerlink" title="캐릭터, 무기 가챠"></a>캐릭터, 무기 가챠</h3><p><img src="/image/%EC%BA%90%EB%A6%AD%ED%84%B0%EA%B0%80%EC%B1%A0.png"></p>
+<p><img src="/image/%EB%AC%B4%EA%B8%B0%EA%B0%80%EC%B1%A0.png"></p>
+<p>캐릭터 / 무기를 획득하기 위해서는 원석이 필요하고, 원석을 직접적으로 수급하는 방법은 결정 구매.</p>
+<p>해당 기간에 획득 확률이 상승하는 한정 5성 캐릭터를 획득할 수 있는 기원.</p>
+<p>픽업 확률의 경우 5성 획득할 수 있는 확률은 0.6%, 4성 획득할 수 있는 확률은 5.1%</p>
+<p>천장 시스템이 있어서 10연차에 확정적으로 4성 획득할 수 있고, 90연차에 확정적으로 5성 획득할 수 있다.</p>
+<p>이 때 무조건 확률 UP 캐릭터가 등장하는 것은 아니며, 첫 번째 획득 시에는 확률 UP 캐릭터가 50%의 확률로 등장하는데</p>
+<p>오늘날에는 익숙한 단어로 “반 천장” 시스템이라고 할 수 있겠다.</p>
+<p>만약 첫 번째 획득 시 확률 UP 캐릭터를 획득하지 못했을 경우, 그 다음 획득에는 무조건 확률 UP캐릭터를 획득할 수 있다.</p>
+<p>90연차에 50%의 확률로 한정 5성 캐릭터를 획득 할 수 있으며,(반천장)</p>
+<p>이 때 획득하지 못할 경우 180연차에서 한정 5성 캐릭터를 확정적으로 획득할 수 있다.(천장)</p>
+<p>여기서 발생한 천장 스택은 소모가 안 되어도 다음 픽업기간으로 이월이 되기 때문에, 불쾌함을 덜어주는 장치가 된다.</p>
+<p>무기 이벤트 기원</p>
+<p>해당 기간에 획득 확률이 상승하는 한정 5성 무기를 획득할 수 있는 기원이다.</p>
+<p>5성 획득할 수 있는 확률은 0.7%, 4성 획득할 수 있는 확률은 6%</p>
+<p>천장 80연차로 이 때 75%의 확률로 확률 UP 무기 두 종류 중 하나가 나오게 된다.</p>
+<p><img src="/image/%EC%9A%B4%EB%AA%85%EC%A0%95%ED%95%98%EA%B8%B0.png"></p>
+<p>‘운명 정하기’ 를 통해 원하는 5성 무기를 선택할 수 있는데,</p>
+<p>천장에서 원하는 5성 무기를 획득하지 못할 경우 운명 포인트를 1pt 획득할 수 있고,</p>
+<p>운명 포인트가 2pt가 되면 다음 획득하는 5성 무기는 무조건 정해둔 무기를 획득할 수 있다.</p>
+<p>천장을 두 번 쳐야 원하는 무기를 확정적으로 얻을 수 있다.</p>
+<p>하지만 운명 포인트의 경우 스택이 이월되지 않는다.</p>
+<p>한계돌파</p>
+<p><img src="/image/%EC%9A%B4%EB%AA%85%EC%9D%98%EC%9E%90%EB%A6%AC.png"></p>
+<p>추가 효과를 부여해 캐릭터의 단점을 상쇄시키거나 새로운 스킬 효과를 부여해 캐릭터의 포지션까지 변경이 가능하다.</p>
+<p>원하는 효과를 얻기 위해서 이전 단계의 효과들도 모두 개방해야한다.</p>
+<p>원신의 경우 기본적으로 경쟁 시스템이 없고 탐험에 있어 무조건적인 캐릭터 강요는 없다.</p>
+<p>더 편한 편의성을 제공할 뿐이다.</p>
+<h4 id="호요버스의-전작인-붕괴3rd를-경험했다면-매우-익숙한-가챠-시스템이다"><a href="#호요버스의-전작인-붕괴3rd를-경험했다면-매우-익숙한-가챠-시스템이다" class="headerlink" title="호요버스의 전작인 붕괴3rd를 경험했다면 매우 익숙한 가챠 시스템이다."></a>호요버스의 전작인 붕괴3rd를 경험했다면 매우 익숙한 가챠 시스템이다.</h4><h3 id="현금-재화"><a href="#현금-재화" class="headerlink" title="현금 재화"></a>현금 재화</h3><p><img src="/image/%EC%B0%BD%EC%84%B8%EC%9D%98%EA%B2%B0%EC%A0%95.png"></p>
+<p>창세의 결정은 과금을 통해서만 구매 가능한 유료 재화로, 창세의 결정 1개는 원석 1개의 가치를 지닌다.</p>
+<p>결정 구매의 경우 첫 충전 시 2배 이벤트가 존재해 충전 효율이 2배로 증가한다.</p>
+<p>이 첫 충전 시 2배 이벤트는 대략 1주년 주기로 리셋되는데, 공월 축복을 제외하고 가장 효율이 높은 상품이기 때문에</p>
+<p>한정적으로 주어지는 기회를 놓치지 않기 위해 심리적으로 과금을 유도하는 요소가 된다.</p>
+<h3 id="월-패키지"><a href="#월-패키지" class="headerlink" title="월 패키지"></a>월 패키지</h3><p><img src="/image/%EA%B3%B5%EC%9B%94%EC%B6%95%EB%B3%B5.png"></p>
+<p>공월 축복은 출석체크 보상으로 원석을 얻을 수 있는 패키지로,</p>
+<p>30일간 현재 5900원의 가격으로 창세의 결정 300개, 원석 2700개를 얻을 수 있다.</p>
+<p>창세의 결정의 경우 과금을 통해서만 얻을 수 있는 유료재화로, 창세의 결정 1개는 원석 1개로 교환할 수 있다.</p>
+<p>앞서 말했던 것 처럼 인게임에서 원석을 얻기 위해서는 다양한 콘텐츠를 꾸준히 플레이해야하며,</p>
+<p>원석의 경우 위의 창세의 결정의 가격만 보더라도 알 수 있는데</p>
+<p>공월 축복의 가성비는 감히 원신 내에서 가장 뛰어난 가성비라고 생각한다.</p>
+<p>따라서 공월 축복은 부담가지 않는 가격, 가성비 좋은 상품으로 인식되어</p>
+<p>과금유도에 있어 가장 큰 역할을 하여 ARPU를 확보하고,</p>
+<p>30일간 꾸준히 접속해야 모든 보상을 받을 수 있기 때문에 유저 잔존율을 높인다.</p>
+<h3 id="시즌패스"><a href="#시즌패스" class="headerlink" title="시즌패스"></a>시즌패스</h3><p><img src="/image/%EA%B3%B5%EC%9B%94%EA%B8%B0%ED%96%89.png" alt="역시 가격이 인상되었다."></p>
+<p>공월 기행은 일종의 시즌패스로, 일일 임무, 주간 임무, 시즌 임무를 통해 경험치를 획득하고, 달성한 레벨에 따라서 보상을 받을 수 있다.</p>
+<p>받을 수 있는 보상에는 원석, 인연, 각종 육성 재료 등 게임 플레이에 필요한 핵심 재화들이 있다.</p>
+<p>프리미엄 패스의 일종으로 진주 기행이 있는데, 진주 기행을 해금하면 더 많은 보상을 획득할 수 있다.</p>
+<p><img src="/image/%EA%B8%B0%ED%96%89%EB%B3%B4%EB%AC%BC%ED%95%A8.png"></p>
+<p>이벤트 무기 픽업을 하기에 부담되는 유저들에게 좋은 차선책이 되기도 한다. (가성비)</p>
+<p>기행 등급을 올리기 위해서는 여러가지 임무를 클리어해야하는데, 이는 유저들에게 또 다른 게임 플레이 동기를 부여하고 다양한 경험을 제공한다.</p>
+<p>또한 기한이 정해져 있는 임무들이 있어 기행 기간동안 꾸준한 플레이를 유도해 잔존율을 높인다.</p>
+<h3 id="패키지-상점"><a href="#패키지-상점" class="headerlink" title="패키지 상점"></a>패키지 상점</h3><p><img src="/image/%ED%8C%A8%ED%82%A4%EC%A7%80%EC%83%81%EC%A0%90.png"></p>
+<p>얻을 수 있는 재화들이 모험을 통해 비교적 어렵지 않게 얻을 수 있는 재화들이기 때문에 효율이 낮은 편이다.</p>
+<p>패키지 구매를 통해 육성 재화를 유의미한 수준으로 획득할 수는 없다는 뜻이다.</p>
+<p>하지만 패키지 구매를 통해 얻을 수 있는 재화들이 모두 레진을 소모해야 얻을 수 있는 재화들이기 때문에,</p>
+<p>욕심이 과한 사람만 구매해도 괜찮을 정도로 구성되어 있다.</p>
+<h3 id="마일리지-상점"><a href="#마일리지-상점" class="headerlink" title="마일리지 상점"></a>마일리지 상점</h3><p><img src="/image/%EB%A7%88%EC%9D%BC%EB%A6%AC%EC%A7%80.png"></p>
+<p>중복획득 했을 때의 일종의 소비처를 위한 장치</p>
+<h3 id="코스튬-상점"><a href="#코스튬-상점" class="headerlink" title="코스튬 상점"></a>코스튬 상점</h3><p><img src="/image/%EC%BD%94%EC%8A%A4%ED%8A%AC.png"></p>
+<p>원신에서 코스튬은 단순 상품이 아니라 콘텐츠로 다뤄지는 경향이 있는데,</p>
+<p>코스튬 출시 시 코스튬 컨셉을 담은 코스튬 pv를 먼저 공개해 홍보 효과를 높이고 색다른 맛을 볼 수 있게 한다.</p>
+<h3 id="느낀점"><a href="#느낀점" class="headerlink" title="느낀점"></a>느낀점</h3><p>기본 캐릭터만으로도 모든 컨텐츠를 즐길 수 있고, 경쟁도 존재하지 않는 게임에서 매출을 증대시키고, 지속가능하게 하기 위해서</p>
+<ul>
+<li>재화는 인게임에서 충분히 수급이 가능하지만, 과금을 통해 단기간에 수급할 수 있다.</li>
+<li>확실하게 원하는 아이템을 얻을 수 있기 때문에 부정적 경험을 덜어내고, 게임 플레이에 동기부여가 된다.</li>
+<li>성능이 강요되지는 않지만, 성능에 대한 한도가 높게 설정되어있어 유저는 자신의 욕구에 따라 과금 맵기를 정할 수 있다.</li>
+<li>가격이 낮은 상품의 효용성을 높게 설정해두어 쉽게 BM에 접근하게 한다. 이 때 상품은 출석이나 게임 플레이가 유도되어 단순 구매로 끝나는 것이 아니라, 유저들이 게임을 꾸준히 플레이할 수 있도록 유도한다.</li>
+</ul>
+<p>과금이 경험을 부정적으로 만들지 않는 것이 무엇보다 중요하다.</p>
+<p>원신 역시 파워 인플레를 피할 수 없어 캐릭터의 성능이 떨어지는 경우가 많아졌지만</p>
+<p>기본적으로 경쟁이 없으며, 어떻게든 진행 가능한 구조로 게임이 설계되어 있기 때문에</p>
+<p>당장 인플레에 뒤쳐진 파티로도 게임을 진행하여 다음 성능이 뛰어난 캐릭터 가챠를 노리는 방법도 있고</p>
+<p>무엇보다 수집형 RPG에서 캐릭터의 매력이 중요하단 점을 그 어떤 모바일 게임보다도 잘 이해하고 있다.</p>
+<p>실제로 라이덴은 이미 픽업이 돌아왔을 때 뽑아야 하는 캐릭터로서는</p>
+<p>가치가 매우 떨어진 상황이나 흥행공신으로서 여전히 큰 인기를 자랑하는 캐릭터다.</p>
+<p>여기에 더해 잔존율을 유지하는 방법으로 경쟁 컨텐츠를 제외시킨 대신 호요버스가 선택한 방법은</p>
+<p>무려 컨텐츠 업데이트 주기를 보통의 라이브 서비스 게임에서는 상상할 수 없는 속도로 제공한다는 점이다.</p>
+<p>(물론 유저입장에서는 그렇게 느끼기 힘들다. 뭐가 됐든 유저는 먹을 거 다 먹으면 그냥 그대로 끝이기 때문에)</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://kjm94.github.io/2024/09/27/Genshin-Impact-Analytics/" data-id="cm1kc2h6y0000kkvhaktvgesp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Kwon Jung Min"
+        },
+        "headline": "Genshin_Impact_Analytics",
+        "image": "https://KJM94.github.io/image/%EC%9B%90%EC%8B%A0.png",
+        "keywords": "Game",
+        "genre": "Game",
+        "datePublished": "2024-09-27",
+        "dateCreated": "2024-09-27",
+        "dateModified": "2024-09-27",
+        "url": "https://KJM94.github.io/2024/09/27/Genshin-Impact-Analytics/",
+        "description": "원신 BM 분석
+자기 만족으로 끝나는 BM 구조로 장기 흥행하기기본적으로는 수집형 RPG 이기 때문에 장르에 해당하는 공통점이 여럿 있지만
+원신에서 볼 수 있는 몇 가지 차이점이 있다.
+상점 페이지
+공월 축복은 여타 게임에서 보여지는 월 정액 패키지에 해당되는 상품이다.
+상점의 메인페이지에는 공월 축복 단 하나만 노출되고 있으며,
+
+패키지의 종류도 많지 않",
+        "wordCount": 919
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/jung-min-kwon-bba263210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/KJM94" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    <div class="github-card" data-github="kjm94" data-width="340" data-height="317" data-theme="medium"></div>
+    <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2024/09/26/Store-Sales/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Store_Sales</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/27/Genshin-Impact-Analytics/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/%EC%9B%90%EC%8B%A0.png)" alt="Genshin_Impact_Analytics" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Game/">Game</a></p>
+                            <p class="item-title"><a href="/2024/09/27/Genshin-Impact-Analytics/" class="title">Genshin_Impact_Analytics</a></p>
+                            <p class="item-date"><time datetime="2024-09-27T05:32:40.000Z" itemprop="datePublished">2024-09-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/26/Store-Sales/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/AG.jpg)" alt="Store_Sales" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Game/">Game</a></p>
+                            <p class="item-title"><a href="/2024/09/26/Store-Sales/" class="title">Store_Sales</a></p>
+                            <p class="item-date"><time datetime="2024-09-26T11:39:03.000Z" itemprop="datePublished">2024-09-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/23/Platinum-Sales/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/tga.jpg)" alt="Platinum_Sales" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Game/">Game</a></p>
+                            <p class="item-title"><a href="/2024/09/23/Platinum-Sales/" class="title">Platinum_Sales</a></p>
+                            <p class="item-date"><time datetime="2024-09-23T10:22:54.000Z" itemprop="datePublished">2024-09-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/14/Vindictus-Analytics/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/28590_39611_1959.png)" alt="Vindictus_Analytics" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Game/">Game</a></p>
+                            <p class="item-title"><a href="/2024/09/14/Vindictus-Analytics/" class="title">Vindictus_Analytics</a></p>
+                            <p class="item-date"><time datetime="2024-09-14T01:50:49.000Z" itemprop="datePublished">2024-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/14/Tales-Runner-Analytics/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/art_142583_1647407068.png)" alt="Tales_Runner_Analytics" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Game/">Game</a></p>
+                            <p class="item-title"><a href="/2024/09/14/Tales-Runner-Analytics/" class="title">Tales_Runner_Analytics</a></p>
+                            <p class="item-date"><time datetime="2024-09-14T01:45:54.000Z" itemprop="datePublished">2024-09-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Project/">Project</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Project/Dacon/">Dacon</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Project/Kaggle/">Kaggle</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/R/">R</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Sql/">Sql</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DL/" rel="tag">DL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game/" rel="tag">Game</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Game/" rel="tag">Linux Game</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PYTHON/" rel="tag">PYTHON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/" rel="tag">Project</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/" rel="tag">R</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/" rel="tag">Tool</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">37</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 15.71px;">C++</a> <a href="/tags/DL/" style="font-size: 10px;">DL</a> <a href="/tags/Game/" style="font-size: 14.29px;">Game</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/JAVA/" style="font-size: 11.43px;">JAVA</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 11.43px;">Linux</a> <a href="/tags/Linux-Game/" style="font-size: 10px;">Linux Game</a> <a href="/tags/PYTHON/" style="font-size: 10px;">PYTHON</a> <a href="/tags/Project/" style="font-size: 17.14px;">Project</a> <a href="/tags/R/" style="font-size: 18.57px;">R</a> <a href="/tags/SQL/" style="font-size: 11.43px;">SQL</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/c/" style="font-size: 12.86px;">c++</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/python/" style="font-size: 20px;">python</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Kwon Jung Min</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://kjm94.github.io/2024/09/27/Genshin-Impact-Analytics/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
